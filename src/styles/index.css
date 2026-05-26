@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 6%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 38 92% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-slate-800;
+  }
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+  }
+}
+
+/* Scrollbar custom */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Canvas area */
+.canvas-area {
+  background-image:
+    radial-gradient(circle at 1px 1px, #334155 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Section styles */
+.section-wrapper {
+  transition: all 0.2s ease;
+}
+
+.section-wrapper:hover {
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+
+.section-wrapper.selected {
+  box-shadow: 0 0 0 2px #f59e0b;
+}
+
+/* Column styles */
+.column-wrapper {
+  transition: all 0.2s ease;
+  min-height: 80px;
+}
+
+.column-wrapper:hover {
+  background-color: rgba(245, 158, 11, 0.05);
+}
+
+.column-wrapper.selected {
+  background-color: rgba(245, 158, 11, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.5);
+}
+
+/* Widget styles */
+.widget-wrapper {
+  transition: all 0.15s ease;
+}
+
+.widget-wrapper:hover {
+  background-color: rgba(245, 158, 11, 0.08);
+}
+
+.widget-wrapper.selected {
+  background-color: rgba(245, 158, 11, 0.12);
+  box-shadow: inset 0 0 0 1px #f59e0b;
+}
+
+/* Empty state */
+.empty-state {
+  border: 2px dashed #334155;
+  transition: all 0.2s ease;
+}
+
+.empty-state:hover {
+  border-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.05);
+}
+
+/* Drag placeholder */
+.drag-placeholder {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.4) 50%, rgba(245, 158, 11, 0.2) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Input styles */
+input, textarea, select {
+  @apply bg-slate-800 border-slate-700 text-slate-100 rounded-lg px-3 py-2 text-sm;
+  @apply focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500;
+  @apply placeholder:text-slate-500;
+}
+
+input[type="color"] {
+  @apply h-10 p-1 cursor-pointer;
+}
+
+/* Button styles */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm;
+  @apply transition-all duration-200 active:scale-95;
+}
+
+.btn-primary {
+  @apply btn bg-amber-500 text-slate-950 hover:bg-amber-400;
+}
+
+.btn-secondary {
+  @apply btn bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700;
+}
+
+.btn-ghost {
+  @apply btn text-slate-400 hover:text-slate-100 hover:bg-slate-800;
+}
+
+.btn-danger {
+  @apply btn bg-red-500/20 text-red-400 hover:bg-red-500/30 border border-red-500/30;
+}
+
+/* Tooltip */
+.tooltip {
+  @apply relative;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1;
+  @apply bg-slate-800 text-slate-100 text-xs rounded whitespace-nowrap;
+  @apply opacity-0 invisible transition-all duration-200;
+}
+
+.tooltip:hover::after {
+  @apply opacity-100 visible;
+}
+
+/* Preview mode */
+.preview-mode .section-actions,
+.preview-mode .column-actions,
+.preview-mode .widget-actions,
+.preview-mode .add-button,
+.preview-mode .empty-state {
+  display: none !important;
+}
+
+.preview-mode .section-wrapper,
+.preview-mode .column-wrapper,
+.preview-mode .widget-wrapper {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* JSON preview */
+.json-preview {
+  @apply font-mono text-xs leading-relaxed;
+}
+
+.json-preview .key {
+  @apply text-amber-400;
+}
+
+.json-preview .string {
+  @apply text-emerald-400;
+}
+
+.json-preview .number {
+  @apply text-cyan-400;
+}
+
+.json-preview .boolean {
+  @apply text-purple-400;
+}
