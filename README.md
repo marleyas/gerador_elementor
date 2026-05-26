@@ -33,6 +33,7 @@ O **Gerador JSON Elementor** é uma ferramenta visual que permite criar layouts 
 - Editar propriedades em tempo real
 - Exportar JSON pronto para importação no Elementor
 
+![screenshot](public/screenshot.png)
 ---
 
 ## Recursos
