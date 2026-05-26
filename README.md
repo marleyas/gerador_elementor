@@ -165,8 +165,8 @@ Ao abrir pela primeira vez, o macOS pode bloquear por não ser de um desenvolved
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/seu-usuario/gerador-json-elementor.git
-cd gerador-json-elementor
+git clone https://github.com/marleyas/gerador_elementor.git
+cd gerador_elementor
 
 # Instalar dependências
 npm install
