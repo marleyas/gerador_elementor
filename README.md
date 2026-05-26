@@ -209,7 +209,7 @@ release/
 ## Estrutura do Projeto
 
 ```
-gerador-json-elementor/
+gerador_elementor/
 ├── build/                      # Recursos de build (ícones, entitlements)
 │   ├── icon.png
 │   ├── icon.ico
